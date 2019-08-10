@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/julienschmidt/httprouter"
 	"net/http"
+	"time"
 )
 
 // ReadRequestBody will read the incoming request body, decode it into json and write into the inputted struct pointer
@@ -43,7 +44,7 @@ func HandleLogin_POST(ds Datasource) httprouter.Handle {
 			return
 		}
 
-		registeredPass, err := ds.QueryUserHashedPassword(loginReq.Username)
+		registeredPass, err := ds.QueryUserPassword(loginReq.Username)
 		if err != nil {
 			fmt.Println(func_name, err)
 			HttpErrorResponder(w, "DB error")
@@ -56,12 +57,19 @@ func HandleLogin_POST(ds Datasource) httprouter.Handle {
 			return
 		}
 
+		jwt, err := CreateJwt(loginReq.Username, time.Time{})
+		if err != nil {
+			fmt.Println(func_name, err)
+			HttpErrorResponder(w, "JWT error")
+			return
+		}
 
-
+		w.WriteHeader(http.StatusOK)
+		_, _ = w.Write([]byte(jwt))
 	})
 }
 
-func HandleregisterPost(ds Datasource) httprouter.Handle {
+func HandleRegister_POST(ds Datasource) httprouter.Handle {
 	return httprouter.Handle(func(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
 		var func_name = "HandleRegister_POST"
 
@@ -82,5 +90,30 @@ func HandleregisterPost(ds Datasource) httprouter.Handle {
 
 		w.WriteHeader(http.StatusCreated)
 		_, _ = w.Write([]byte("Account Created"))
+	})
+}
+
+func HandleProtectedEndpoint_GET() httprouter.Handle {
+	return httprouter.Handle(func(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
+		var func_name = "HandleProtectedEndpoint"
+
+		jwt := req.Header.Get("jwt")
+		if jwt == "" {
+			fmt.Println(func_name, "cannot get jwt header")
+			w.WriteHeader(http.StatusUnauthorized)
+			_, _ = fmt.Fprint(w, "Jwt header invalid")
+			return
+		}
+
+		claims, err := ValidateSigningAndGetJwtClaims(jwt)
+		if err != nil {
+			fmt.Println(func_name, err)
+			w.WriteHeader(http.StatusUnauthorized)
+			_, _ = fmt.Fprint(w, "Jwt invalid or expired")
+			return
+		}
+
+		w.WriteHeader(http.StatusOK)
+		_, _ = w.Write([]byte("Hello " + claims["Username"].(string)))
 	})
 }

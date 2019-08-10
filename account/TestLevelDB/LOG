@@ -1,0 +1,133 @@
+=============== Aug 10, 2019 (+07) ===============
+12:44:33.310001 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+12:44:33.367001 db@open opening
+12:44:33.373001 version@stat F·[] S·0B[] Sc·[]
+12:44:33.406001 db@janitor F·2 G·0
+12:44:33.406001 db@open done T·39ms
+=============== Aug 10, 2019 (+07) ===============
+12:45:16.602001 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+12:45:16.603001 version@stat F·[] S·0B[] Sc·[]
+12:45:16.603001 db@open opening
+12:45:16.604001 journal@recovery F·1
+12:45:16.607001 journal@recovery recovering @1
+12:45:16.609001 version@stat F·[] S·0B[] Sc·[]
+12:45:16.671001 db@janitor F·2 G·0
+12:45:16.671001 db@open done T·68ms
+=============== Aug 10, 2019 (+07) ===============
+13:05:04.992001 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:05:04.992001 version@stat F·[] S·0B[] Sc·[]
+13:05:04.992001 db@open opening
+13:05:04.993001 journal@recovery F·1
+13:05:04.993001 journal@recovery recovering @2
+13:05:05.025001 memdb@flush created L0@4 N·4 S·169B "use..que,d4":"use..que,v1"
+13:05:05.026001 version@stat F·[1] S·169B[169B] Sc·[0.25]
+13:05:05.096001 db@janitor F·3 G·0
+13:05:05.096001 db@open done T·104ms
+=============== Aug 10, 2019 (+07) ===============
+13:05:21.732001 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:05:21.733001 version@stat F·[1] S·169B[169B] Sc·[0.25]
+13:05:21.733001 db@open opening
+13:05:21.734001 journal@recovery F·1
+13:05:21.736001 journal@recovery recovering @5
+13:05:21.775001 memdb@flush created L0@7 N·5 S·185B "John123,v10":"use..que,v6"
+13:05:21.776001 version@stat F·[2] S·354B[354B] Sc·[0.50]
+13:05:21.852001 db@janitor F·4 G·0
+13:05:21.852001 db@open done T·119ms
+=============== Aug 10, 2019 (+07) ===============
+13:08:10.437001 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:08:10.438001 version@stat F·[2] S·354B[354B] Sc·[0.50]
+13:08:10.438001 db@open opening
+13:08:10.438001 journal@recovery F·1
+13:08:10.439001 journal@recovery recovering @8
+13:08:10.482001 memdb@flush created L0@10 N·5 S·185B "John123,v16":"use..que,v12"
+13:08:10.485001 version@stat F·[3] S·539B[539B] Sc·[0.75]
+13:08:10.544001 db@janitor F·5 G·0
+13:08:10.544001 db@open done T·106ms
+=============== Aug 10, 2019 (+07) ===============
+13:12:11.473001 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:12:11.475001 version@stat F·[3] S·539B[539B] Sc·[0.75]
+13:12:11.475001 db@open opening
+13:12:11.475001 journal@recovery F·1
+13:12:11.476001 journal@recovery recovering @11
+13:12:11.503001 memdb@flush created L0@13 N·5 S·185B "John123,v22":"use..que,v18"
+13:12:11.504001 version@stat F·[4] S·724B[724B] Sc·[1.00]
+13:12:11.565001 db@janitor F·6 G·0
+13:12:11.565001 db@open done T·90ms
+13:12:11.565001 table@compaction L0·4 -> L1·0 S·724B Q·23
+=============== Aug 10, 2019 (+07) ===============
+13:15:33.990001 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:15:33.991001 version@stat F·[4] S·724B[724B] Sc·[1.00]
+13:15:33.991001 db@open opening
+13:15:33.992001 journal@recovery F·1
+13:15:33.993001 journal@recovery recovering @14
+13:15:34.022001 memdb@flush created L0@16 N·6 S·195B "John123,v29":"use..que,v24"
+13:15:34.023001 version@stat F·[5] S·919B[919B] Sc·[1.25]
+13:15:34.096001 db@janitor F·7 G·0
+13:15:34.096001 db@open done T·104ms
+13:15:34.096001 table@compaction L0·5 -> L1·0 S·919B Q·30
+=============== Aug 10, 2019 (+07) ===============
+13:16:04.880001 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:16:04.882001 version@stat F·[5] S·919B[919B] Sc·[1.25]
+13:16:04.882001 db@open opening
+13:16:04.882001 journal@recovery F·1
+13:16:04.886001 journal@recovery recovering @17
+13:16:04.944001 memdb@flush created L0@19 N·6 S·195B "John123,v36":"use..que,v31"
+13:16:04.945001 version@stat F·[6] S·1KiB[1KiB] Sc·[1.50]
+13:16:05.026001 db@janitor F·8 G·0
+13:16:05.026001 db@open done T·144ms
+13:16:05.026001 table@compaction L0·6 -> L1·0 S·1KiB Q·37
+=============== Aug 10, 2019 (+07) ===============
+13:16:28.866001 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:16:28.868001 version@stat F·[6] S·1KiB[1KiB] Sc·[1.50]
+13:16:28.868001 db@open opening
+13:16:28.868001 journal@recovery F·1
+13:16:28.873001 journal@recovery recovering @20
+13:16:28.917001 memdb@flush created L0@22 N·6 S·195B "John123,v43":"use..que,v38"
+13:16:28.918001 version@stat F·[7] S·1KiB[1KiB] Sc·[1.75]
+13:16:28.999001 db@janitor F·9 G·0
+13:16:28.999001 db@open done T·131ms
+13:16:28.999001 table@compaction L0·7 -> L1·0 S·1KiB Q·44
+=============== Aug 10, 2019 (+07) ===============
+13:17:02.797001 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:17:02.797001 version@stat F·[7] S·1KiB[1KiB] Sc·[1.75]
+13:17:02.797001 db@open opening
+13:17:02.797001 journal@recovery F·1
+13:17:02.799001 journal@recovery recovering @23
+13:17:02.836001 memdb@flush created L0@25 N·6 S·195B "John123,v50":"use..que,v45"
+13:17:02.837001 version@stat F·[8] S·1KiB[1KiB] Sc·[2.00]
+13:17:02.918001 db@janitor F·10 G·0
+13:17:02.918001 db@open done T·121ms
+13:17:02.918001 table@compaction L0·8 -> L1·0 S·1KiB Q·51
+=============== Aug 10, 2019 (+07) ===============
+13:18:53.505001 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:18:53.507001 version@stat F·[8] S·1KiB[1KiB] Sc·[2.00]
+13:18:53.507001 db@open opening
+13:18:53.507001 journal@recovery F·1
+13:18:53.511001 journal@recovery recovering @26
+13:18:53.550001 memdb@flush created L0@28 N·6 S·195B "John123,v57":"use..que,v52"
+13:18:53.551001 version@stat F·[9] S·1KiB[1KiB] Sc·[2.25]
+13:18:53.621001 db@janitor F·11 G·0
+13:18:53.621001 db@open done T·114ms
+13:18:53.621001 table@compaction L0·9 -> L1·0 S·1KiB Q·58
+=============== Aug 10, 2019 (+07) ===============
+13:19:36.968001 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:19:36.968001 version@stat F·[9] S·1KiB[1KiB] Sc·[2.25]
+13:19:36.968001 db@open opening
+13:19:36.968001 journal@recovery F·1
+13:19:36.970001 journal@recovery recovering @29
+13:19:36.995001 memdb@flush created L0@31 N·6 S·195B "John123,v64":"use..que,v59"
+13:19:36.996001 version@stat F·[10] S·1KiB[1KiB] Sc·[2.50]
+13:19:37.057001 db@janitor F·12 G·0
+13:19:37.057001 db@open done T·89ms
+13:19:37.058001 table@compaction L0·10 -> L1·0 S·1KiB Q·65
+=============== Aug 10, 2019 (+07) ===============
+13:20:13.827001 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:20:13.829001 version@stat F·[10] S·1KiB[1KiB] Sc·[2.50]
+13:20:13.829001 db@open opening
+13:20:13.830001 journal@recovery F·1
+13:20:13.836001 journal@recovery recovering @32
+13:20:13.864001 memdb@flush created L0@34 N·6 S·198B "John123,v71":"use..que,v66"
+13:20:13.865001 version@stat F·[11] S·2KiB[2KiB] Sc·[2.75]
+13:20:13.926001 db@janitor F·13 G·0
+13:20:13.926001 db@open done T·97ms
+13:20:13.926001 table@compaction L0·11 -> L1·0 S·2KiB Q·72

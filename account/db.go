@@ -9,7 +9,7 @@ import (
 
 // Datasource abstraction for testable DB
 type Datasource interface {
-	QueryUserHashedPassword(username string) (password string, err error)
+	QueryUserPassword(username string) (password string, err error)
 	InputNewUser(registerRequest RegisterRequest) (err error)
 }
 
@@ -38,10 +38,19 @@ func init() {
 	}
 }
 
-func (levelDB LevelDB) QueryUserHashedPassword(username string) (string, error) {
-	return "", nil
+// given the username will return the password
+func (levelDB LevelDB) QueryUserPassword(username string) (password string, err error) {
+	var func_name = "QueryUserPassword"
+
+	pass, err := levelDB.DB.Get([]byte(username), nil)
+	if err != nil {
+		fmt.Println(func_name, err)
+		return "", err
+	}
+	return string(pass), nil
 }
 
+// register new user with username as key and password as value
 func (levelDB LevelDB) InputNewUser(registerReq RegisterRequest) (err error) {
 	var func_name = "InputNewUser"
 
