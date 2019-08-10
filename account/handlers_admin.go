@@ -1,13 +1,12 @@
 package account
 
-import (
-	"github.com/julienschmidt/httprouter"
-	"net/http"
-)
+/*
+func HandleUsers_GET(ds Datasource) httprouter.Handle {
+	return httprouter.Handle(func(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
 
-func HandleUsers_GET(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
-	w.Header().Set("Content-Type", "application/json")
-
-
+		var
+		decoder := json.NewDecoder(req.Body)
+		err := decoder.Decode()
+	})
 }
-
+*/

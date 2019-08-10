@@ -1,28 +1,55 @@
 package account
 
-import "database/sql"
+import (
+	"fmt"
+	"github.com/syndtr/goleveldb/leveldb"
+	"log"
+	"os"
+)
 
+// Datasource abstraction for testable DB
 type Datasource interface {
-	QueryUserHashedPassword(username string) ([]byte, error)
+	QueryUserHashedPassword(username string) (password string, err error)
+	InputNewUser(registerRequest RegisterRequest) (err error)
 }
 
-type ProdDS struct {
-	DB *sql.DB
+// implementation of the Datasource using levelDB
+var levelDBPath = "levelDB"
+type LevelDB struct {
+	DB *leveldb.DB
 }
 
-var ProdDB ProdDS
+// the accessible variable for our DB
+var ProdDB LevelDB
 
 func init() {
-	var err error
-	//DB, err = sql.Open("postgres", "postgres://testing:testing@localhost/testing?sslmode=disable")
-	DB, err := sql.Open("postgres", "postgres://mitrakm_user:mitrakm@localhost/mitrakm?sslmode=disable")
+	// create new folder to store our leveldb if not exist
+	_, err := os.Stat(levelDBPath)
+	if os.IsNotExist(err) {
+		err = os.Mkdir(levelDBPath, os.ModePerm)
+		if err != nil {
+			log.Fatal("Error creating new folder for levelDB")
+		}
+	}
+
+	ProdDB.DB, err = leveldb.OpenFile(levelDBPath, nil)
 	if err != nil {
-		panic(err)
+		log.Fatal("Error opening levelDB folder")
+	}
+}
+
+func (levelDB LevelDB) QueryUserHashedPassword(username string) (string, error) {
+	return "", nil
+}
+
+func (levelDB LevelDB) InputNewUser(registerReq RegisterRequest) (err error) {
+	var func_name = "InputNewUser"
+
+	err = levelDB.DB.Put([]byte(registerReq.Username), []byte(registerReq.Password), nil)
+	if err != nil {
+		fmt.Println(func_name, err)
+		return err
 	}
 
-	if err = DB.Ping(); err != nil {
-		panic(err)
-	}
-
-
+	return nil
 }
