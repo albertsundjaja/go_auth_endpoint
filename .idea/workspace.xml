@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f6dcbbd2-1eae-4dac-8106-9e6164bdb0f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/account/db_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account/handlers_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/account/db.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/handlers.go" beforeDir="false" afterPath="$PROJECT_DIR$/account/handlers.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/handlers_admin.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/levelDB/000001.log" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/levelDB/CURRENT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/levelDB/LOG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/levelDB/MANIFEST-000000" beforeDir="false" />
-    </list>
+    <list default="true" id="f6dcbbd2-1eae-4dac-8106-9e6164bdb0f9" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
