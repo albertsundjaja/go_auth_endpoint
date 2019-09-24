@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/julienschmidt/httprouter"
+	"github.com/syndtr/goleveldb/leveldb"
 	"net/http"
 	"time"
 )
@@ -34,7 +35,11 @@ func HttpErrorResponder(w http.ResponseWriter, msg string) {
 
 func HandleLogin_POST(ds Datasource) httprouter.Handle {
 	return httprouter.Handle(func(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
-		var func_name = "HandleLogin_GET"
+		var func_name = "HandleLogin_POST"
+
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Headers", "Access-Control-Allow-Origin, jwt, Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
+		w.Header().Add("Access-Control-Allow-Methods", "GET,POST,OPTIONS")
 
 		var loginReq LoginRequest
 		err := ReadRequestBody(req, &loginReq)
@@ -46,6 +51,12 @@ func HandleLogin_POST(ds Datasource) httprouter.Handle {
 
 		registeredPass, err := ds.QueryUserPassword(loginReq.Username)
 		if err != nil {
+			if err == leveldb.ErrNotFound {
+				fmt.Println(func_name, "wrong username")
+				w.WriteHeader(http.StatusUnauthorized)
+				_, _ = w.Write([]byte("Wrong Username/Password"))
+				return
+			}
 			fmt.Println(func_name, err)
 			HttpErrorResponder(w, "DB error")
 			return
@@ -73,6 +84,10 @@ func HandleRegister_POST(ds Datasource) httprouter.Handle {
 	return httprouter.Handle(func(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
 		var func_name = "HandleRegister_POST"
 
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Headers", "Access-Control-Allow-Origin, jwt, Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
+		w.Header().Add("Access-Control-Allow-Methods", "GET,POST,OPTIONS")
+
 		var registerReq RegisterRequest
 		err := ReadRequestBody(req, &registerReq)
 		if err != nil {
@@ -95,6 +110,10 @@ func HandleRegister_POST(ds Datasource) httprouter.Handle {
 
 func HandleProtectedEndpoint_GET() httprouter.Handle {
 	return httprouter.Handle(func(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
+		w.Header().Set("Content-Type", "application/json")
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Headers", "jwt, UUID, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
+
 		var func_name = "HandleProtectedEndpoint"
 
 		jwt := req.Header.Get("jwt")
