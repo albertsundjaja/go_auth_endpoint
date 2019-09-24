@@ -18,6 +18,9 @@ func main() {
 	router.GET("/api/account/protected_page", account.HandleProtectedEndpoint_GET())
 	router.OPTIONS("/api/account/protected_page", HandleOptions)
 
+	router.GET("/static/*filepath", HandleStatic)
+	router.GET("/", HandleMainPage)
+
 	//handler := cors.Default().Handler(router)
 	log.Fatal(http.ListenAndServe(":8000", router))
 }
@@ -27,4 +30,13 @@ func HandleOptions(w http.ResponseWriter, req *http.Request, _ httprouter.Params
 	w.Header().Set("Access-Control-Allow-Headers", "Access-Control-Allow-Origin, jwt, Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
 	w.Header().Add("Access-Control-Allow-Methods", "GET,POST,OPTIONS")
 	w.WriteHeader(http.StatusOK)
+}
+
+func HandleMainPage(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
+	http.ServeFile(w, req, "build/index.html")
+}
+
+func HandleStatic(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
+	fileserver := http.FileServer(http.Dir("build"))
+	fileserver.ServeHTTP(w, req)
 }
